@@ -5,6 +5,9 @@ const descripcion = document.querySelector("#descripcion");
 const form = document.querySelector("#nota-form");
 const div = document.querySelector("#resultado_nota_div");
 const ul = document.querySelector('ul');
+const div_busqueda = document.querySelector("#resultado_busqueda_div");
+const form_busqueda = document.querySelector("#buscador-form");
+const buscar = document.querySelector("#buscar")
 
 let LN = new Map();
 
@@ -18,4 +21,9 @@ form.addEventListener("submit", (event) => {
   
   li.appendChild(p);
   ul.appendChild(li);
+});
+
+form_busqueda.addEventListener("submit", (event) => {
+  event.preventDefault();
+  div_busqueda.innerHTML = "<p>" + LN.get(buscar.value) + "</p>";
 });
